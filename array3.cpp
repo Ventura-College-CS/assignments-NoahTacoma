@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 int main()
@@ -12,8 +13,11 @@ int main()
 
     // pos = mainstr.find(substr) ;
     cout << sizeof(mainstr) <<endl;
-    cout << sizeof(str) << endl;
+    cout << sizeof(substr) << endl;
 
+
+    cout << strlen(substr) << endl;
+    cout << strlen(mainstr) << endl;
 
     //cout << " found at position " << pos << endl;
 

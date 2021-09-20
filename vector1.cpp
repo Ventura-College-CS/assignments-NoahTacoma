@@ -11,6 +11,8 @@ int main()
 
     vector<int>::iterator it;
     vector<int> numbers = { 10, 13, 5, 7, 25};
+    int     new_number;
+
 
     printVector(numbers);
     sort(numbers.begin(), numbers.end());
@@ -23,10 +25,17 @@ int main()
 
     // member functions
     //insert() 
-    it = numbers.begin();
-    numbers.insert(it+4 , 15);
-    printVector(numbers);
+    cout <<"enter your number to insert : ";
+    cin >> new_number;
 
+    for(it=numbers.begin(); it<numbers.end(); it++)
+    {
+        if (*it > new_number)
+            break;
+    }
+
+    numbers.insert(it, new_number);
+    printVector(numbers);
 
 }
 

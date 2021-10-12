@@ -21,7 +21,7 @@ int main()
 
     ifs.read( (char *)S, sizeof(*S));
 
-    if( (S->score[0] + S->score[1] + S->score[2])/3 >= 0)
+    if( (S->score[0] + S->score[1] + S->score[2])/3 >= 85)
     {
       cout << " ID : " << (*S).id << "\t";
       cout << " Name : " << (*S).sname << "\t";

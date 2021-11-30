@@ -43,7 +43,32 @@ public:
 	}
 };
 
+bool operator<(const Student &lhs, const Student &rhs)
+{
+	double lhssum = 0.0, rhssum = 0.0;
+	vector<double> score;
+	score = lhs.getScore();
+	for (int i = 0; i < score.size(); i++)
+		lhssum += score[i];
+	score = rhs.getScore();
+	for (int i = 0; i < score.size(); i++)
+		rhssum += score[i];
+
+	return lhssum < rhssum; 
+}
+//template <class T>   
+//class Stack 
+//{
+//    pool: vector<T> ;
+//    Stack();
+//    push(el; const T &): void
+//    pop(): T
+//    topEl( ) : T & // get 1st element
+//    isEmpty( ): bool
+//    size() : int // get the number of elms
+//}
+
 int main()
 {
     cout << "TEST" << endl;
-};
+}

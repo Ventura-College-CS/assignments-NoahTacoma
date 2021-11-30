@@ -70,5 +70,46 @@ bool operator<(const Student &lhs, const Student &rhs)
 
 int main()
 {
-    cout << "TEST" << endl;
+	Student s1, s2, s3, s4, s5;
+	Student pop_student;
+
+	s1.setSid(100);
+	s1.setSname("John");
+	s1.setScore(100, 100, 100);
+	s1.printStudent();
+
+	s2.setSid(101);
+	s2.setSname("Jingle");
+	s2.setScore(100, 90, 90);
+	s2.printStudent();
+
+	s3.setSid(102);
+	s3.setSname("Heimer");
+	s3.setScore(100, 90, 80);
+	s3.printStudent();
+
+    s4.setSid(103);
+	s4.setSname("Schmidt");
+	s4.setScore(100, 90, 70);
+	s4.printStudent();
+
+    s5.setSid(104);
+	s5.setSname("Steve");
+	s5.setScore(90, 90, 100);
+	s5.printStudent();
+
+	cout << "Test\n";
+ 	priority_queue<Student> pq;
+	pq.push(s1);
+	pq.push(s2);
+	pq.push(s3);
+    pq.push(s4);
+    pq.push(s5);
+
+	while (!pq.empty())
+	{
+		pop_student = pq.top();
+		pop_student.printStudent();
+		pq.pop();
+	}
 }

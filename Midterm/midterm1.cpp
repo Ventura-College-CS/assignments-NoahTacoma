@@ -98,13 +98,14 @@ int main()
 	s5.setScore(90, 90, 100);
 	s5.printStudent();
 
-	cout << "Test\n";
+//	cout << "Test\n";
  	priority_queue<Student> pq;
 	pq.push(s1);
 	pq.push(s2);
 	pq.push(s3);
     pq.push(s4);
     pq.push(s5);
+    cout <<"There are "<< pq. size()<< " Students" << "\n";
 
 	while (!pq.empty())
 	{

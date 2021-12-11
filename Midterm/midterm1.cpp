@@ -43,33 +43,43 @@ public:
 	}
 };
 
-bool operator<(const Student &lhs, const Student &rhs)
-{
-	double lhssum = 0.0, rhssum = 0.0;
-	vector<double> score;
-	score = lhs.getScore();
-	for (int i = 0; i < score.size(); i++)
-		lhssum += score[i];
-	score = rhs.getScore();
-	for (int i = 0; i < score.size(); i++)
-		rhssum += score[i];
 
-	return lhssum < rhssum; 
-}
-//template <class T>   
-//class Stack 
-//{
-//    pool: vector<T> ;
-//    Stack();
-//    push(el; const T &): void
-//    pop(): T
-//    topEl( ) : T & // get 1st element
-//    isEmpty( ): bool
-//    size() : int // get the number of elms
-//}
 
-int main()
+template <class T>   
+class Stack 
 {
+	public:
+    vector<T>pool;
+
+    //Stack();
+	Stack()
+	{
+		
+	}
+
+    void push(const T & el){
+		this->pool.push_back(el);
+
+	}
+    T pop(){
+		T a = this->pool.back();
+		this->pool.pop_back();
+		return a;
+
+	}
+	T& topEl( ) {
+		return this->pool.back();
+
+	}// get 1st element
+    bool isEmpty(){
+		return this->pool.empty();
+	}
+    int size(){
+		return this->pool.size();
+	} // get the number of elms;
+};
+
+int main(){
 	Student s1, s2, s3, s4, s5;
 	Student pop_student;
 
@@ -98,19 +108,74 @@ int main()
 	s5.setScore(90, 90, 100);
 	s5.printStudent();
 
-//	cout << "Test\n";
- 	priority_queue<Student> pq;
-	pq.push(s1);
-	pq.push(s2);
-	pq.push(s3);
-    pq.push(s4);
-    pq.push(s5);
-    cout <<"There are "<< pq. size()<< " Students" << "\n";
-
-	while (!pq.empty())
-	{
-		pop_student = pq.top();
+	Stack <Student>test;
+	test.push(s1);
+	test.push(s2);
+	test.push(s3);
+	test.push(s4);
+	test.push(s5);
+	cout <<"size" << test.size() << "\n";
+	while(!test.isEmpty()){
+		pop_student = test.topEl();
 		pop_student.printStudent();
-		pq.pop();
+		test.pop();
 	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// {
+// 	Student s1, s2, s3, s4, s5;
+// 	Student pop_student;
+
+// 	s1.setSid(100);
+// 	s1.setSname("John");
+// 	s1.setScore(100, 100, 100);
+// 	s1.printStudent();
+
+// 	s2.setSid(101);
+// 	s2.setSname("Jingle");
+// 	s2.setScore(100, 90, 90);
+// 	s2.printStudent();
+
+// 	s3.setSid(102);
+// 	s3.setSname("Heimer");
+// 	s3.setScore(100, 90, 80);
+// 	s3.printStudent();
+
+//     s4.setSid(103);
+// 	s4.setSname("Schmidt");
+// 	s4.setScore(100, 90, 70);
+// 	s4.printStudent();
+
+//     s5.setSid(104);
+// 	s5.setSname("Steve");
+// 	s5.setScore(90, 90, 100);
+// 	s5.printStudent();
+
+// //	cout << "Test\n";
+//  	priority_queue<Student> pq;
+// 	pq.push(s1);
+// 	pq.push(s2);
+// 	pq.push(s3);
+//     pq.push(s4);
+//     pq.push(s5);
+//     cout <<"There are "<< pq. size()<< " Students" << "\n";
+
+// 	while (!pq.empty())
+// 	{
+// 		pop_student = pq.top();
+// 		pop_student.printStudent();
+// 		pq.pop();
+// 	}
+// }

@@ -87,8 +87,17 @@ int main()
 
     csort(carray,10);
 
-    csearch(carray,10,105);
-    cout << csearch(carray,10,111)->ID << "\n";
+ //   csearch(carray,10,105);
+    int SID;
+    cout << "Enter Course ID :";
+    cin >> SID;
+    course* search = csearch(carray,10,SID);
+    if( search == NULL){
+        cout << "Course ID not found" << "\n";
+    }
+    else{
+        cout << search->ID <<" "<< search->name <<" "<< search->credit <<"\n";
+    }
 
 //    cout << c1.ID << "\n";
 }

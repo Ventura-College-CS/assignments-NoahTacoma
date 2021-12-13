@@ -37,17 +37,24 @@ void csort(course* array,int size){
     }
 };
 
-course csearch(course* array,int size,int find){
+course* csearch(course* array,int size,int find){
     int i = size / 2;
+    if(size == 0){
+        return(NULL);
+    }
     if(find == array[i].ID){
-        return(array[i]);
+        return(&array[i]);
     }
     else{
-        if(find > array[i].ID){
-            course found = csearch(array,size/2,find);
-            return(found)
-        };
-        csearch()
+        if(find < array[i].ID){
+            course* found = csearch(array,size/2,find);
+            return(found);
+        }
+        else{
+            array += (size+1)/2;
+            course* found = csearch(array,size/2,find);
+            return(found);
+        }
     }
 
 }
@@ -81,6 +88,7 @@ int main()
     csort(carray,10);
 
     csearch(carray,10,105);
+    cout << csearch(carray,10,111)->ID << "\n";
 
 //    cout << c1.ID << "\n";
 }

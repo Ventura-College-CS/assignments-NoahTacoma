@@ -3,23 +3,25 @@ using namespace std;
 
 
 int postfix_eval(char* array, int size){
-    int result;
-    int v1;
-    int v2;
     for(int i = 0; i < size; i++){
+        int v1 = stack.pop();
+        int v2 = stack.pop();
         if(array[i] == '*'){
-
+            stack.push(v1*v2);
         }
         else if(array[i] == '/'){
-
+            stack.push(v1/v2);
         }
-         else if(array[i] == '+'){
-            
+        else if(array[i] == '+'){
+            stack.push(v1+v2);
         }
         else if(array[i] == '-'){
-            
+            stack.push(v1-v2);
         }
-        
+        else{
+            state = 1;
+            stack.push(array[i]);
+        }
     }
 }
 

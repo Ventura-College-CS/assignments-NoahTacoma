@@ -74,7 +74,7 @@ void quicksort_helper(course* array, int firstI, int lastI){
     }
 
 }
-T(size) = O(1) + O(size) + 2*T(size/2)
+//T(size) = O(1) + O(size) + 2*T(size/2)
 void quicksort(course* array,int size){
     quicksort_helper(array, 0, size-1);
 

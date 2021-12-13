@@ -57,12 +57,25 @@ void quicksort_helper(course* array, int firstI, int lastI){
                 Storage = array[firstI+Low];
                 array[firstI+Low] = array[i];
                 array[i] = Storage;
+                if(Pivot == firstI+Low){
+                    Pivot = i;
+                }
+                else if(Pivot == i){
+                    Pivot = firstI+Low;
+                }
                 Low += 1;
+
             }
             else{
                 Storage = array[lastI-High];
                 array[lastI-High] = array[i];
                 array[i] = Storage;
+                if(Pivot == lastI-High){
+                    Pivot = i;
+                }
+                else if(Pivot == i){
+                    Pivot = lastI-High;
+                }
                 High += 1;    
             }
         }

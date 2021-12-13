@@ -44,7 +44,7 @@ void quicksort_helper(course* array, int firstI, int lastI){
         return;
     }
     else{
-        int Low = 0;
+        int Low = 1;
         int High = 0;
         course Storage;
         int Pivot = firstI;

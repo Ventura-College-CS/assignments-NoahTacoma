@@ -5,11 +5,23 @@ using namespace std;
 
 class course
 {
-    public:
+public:
     int ID;
-    string name;
     int credit;
+    string name[20];
+
+
+     course(int cID, int ccredit, string cname)
+     {
+         cID = ID;
+     }
+
     //Constructor and Member functions that would be necessary to be used in this question
+};
+
+int main()
+{
+
 }
 // In this program, we should manage 10 course objects.
 // To set up 10 object values, you can use the text file from input data.

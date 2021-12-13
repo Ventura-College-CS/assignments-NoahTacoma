@@ -8,12 +8,14 @@ class course
 public:
     int ID;
     int credit;
-    string name[20];
+    string name;
 
 
      course(int cID, int ccredit, string cname)
      {
-         cID = ID;
+         ID = cID;
+         credit = ccredit;
+         name = cname;
      }
 
     //Constructor and Member functions that would be necessary to be used in this question
@@ -21,7 +23,8 @@ public:
 
 int main()
 {
-
+    course c1(101,90,"john");
+    cout << c1.ID << "\n";
 }
 // In this program, we should manage 10 course objects.
 // To set up 10 object values, you can use the text file from input data.

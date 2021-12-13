@@ -61,15 +61,15 @@ course* csearch(course* array,int size,int find){
 
 int main() 
 {
-    course c1(105,90,"john"); //I could not find text file for input data.
-    course c2(102,80,"john");
-    course c3(108,70,"john");
-    course c4(103,60,"john");
-    course c5(101,50,"john");
-    course c6(106,40,"john");
-    course c7(107,30,"john");
-    course c8(104,20,"john");
-    course c9(110,10,"john");
+    course c1(105,90,"alpha"); //I could not find text file for input data.
+    course c2(102,80,"beta");
+    course c3(108,70,"delta");
+    course c4(103,60,"gamma");
+    course c5(101,50,"eta");
+    course c6(106,40,"xennon");
+    course c7(107,30,"borron");
+    course c8(104,20,"gold");
+    course c9(110,10,"steve");
     course c10(109,100,"john");
 
     course carray[10];

@@ -37,6 +37,40 @@ public:
 //     }
 // };
 
+void quicksort(course* array,int size){
+    quicksort_helper(array, 0, size-1);
+
+}
+
+void quicksort_helper(course* array, int firstI, int lastI){
+    int size = lastI - firstI + 1;
+    if(size == 0){
+        return;
+    }
+    else{
+        int Low = 0;
+        int High = 0;
+        course Storage;
+        int Pivot = firstI;
+        for(int i = firstI; i <= lastI; i++){
+            if(array[i].ID < array[Pivot].ID){
+                Storage = array[firstI+Low];
+                array[firstI+Low] = array[i];
+                array[i] = Storage;
+                Low += 1;
+            }
+            else{
+                Storage = array[lastI-High];
+                array[lastI-High] = array[i];
+                array[i] = Storage;
+                High += 1;    
+            }
+        }
+        quicksort_helper(array, firstI, lastI);
+    }
+
+}
+
 course* csearch(course* array,int size,int find){
     int i = size / 2;
     if(size == 0){
@@ -85,7 +119,8 @@ int main()
     carray[8] = c9;
     carray[9] = c10;
 
-    csort(carray,10);
+//    csort(carray,10);
+    quicksort(carray,10);
 
  //   csearch(carray,10,105);
     int SID;

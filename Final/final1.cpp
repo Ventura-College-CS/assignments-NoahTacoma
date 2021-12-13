@@ -21,6 +21,15 @@ public:
     //Constructor and Member functions that would be necessary to be used in this question
 };
 
+void csort(course* array,int size){
+    course temp = array[0];
+    array[0];
+    for(int i = 0; i < size; i++){
+        
+    }
+
+};
+
 int main() 
 {
     course c1(101,90,"john"); //I could not find text file for input data.
@@ -46,6 +55,8 @@ int main()
     carray[7] = c8;
     carray[8] = c9;
     carray[9] = c10;
+
+    csort(carray,10)
 
 //    cout << c1.ID << "\n";
 }

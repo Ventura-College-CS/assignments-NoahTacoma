@@ -22,26 +22,33 @@ public:
 };
 
 void csort(course* array,int size){
-    course temp = array[0];
-    array[0];
+    course temp;
     for(int i = 0; i < size; i++){
-        
+        for(int i2 = i; i2 > 0; i2--){
+            if (array[i2-1].ID > array[i2].ID){
+                temp = array[i2];
+                array[i2] = array[i2-1];
+                array[i2-1] = temp;
+            }
+        }
     }
-
+    for(int i = 0; i < size; i++){
+        cout << array[i].ID << "\n";
+    }
 };
 
 int main() 
 {
-    course c1(101,90,"john"); //I could not find text file for input data.
+    course c1(105,90,"john"); //I could not find text file for input data.
     course c2(102,80,"john");
-    course c3(103,70,"john");
-    course c4(104,60,"john");
-    course c5(105,50,"john");
+    course c3(108,70,"john");
+    course c4(103,60,"john");
+    course c5(101,50,"john");
     course c6(106,40,"john");
     course c7(107,30,"john");
-    course c8(108,20,"john");
-    course c9(109,10,"john");
-    course c10(110,100,"john");
+    course c8(104,20,"john");
+    course c9(110,10,"john");
+    course c10(109,100,"john");
 
     course carray[10];
 
@@ -56,7 +63,7 @@ int main()
     carray[8] = c9;
     carray[9] = c10;
 
-    csort(carray,10)
+    csort(carray,10);
 
 //    cout << c1.ID << "\n";
 }

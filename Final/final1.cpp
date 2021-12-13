@@ -37,6 +37,21 @@ void csort(course* array,int size){
     }
 };
 
+course csearch(course* array,int size,int find){
+    int i = size / 2;
+    if(find == array[i].ID){
+        return(array[i]);
+    }
+    else{
+        if(find > array[i].ID){
+            course found = csearch(array,size/2,find);
+            return(found)
+        };
+        csearch()
+    }
+
+}
+
 int main() 
 {
     course c1(105,90,"john"); //I could not find text file for input data.
@@ -64,6 +79,8 @@ int main()
     carray[9] = c10;
 
     csort(carray,10);
+
+    csearch(carray,10,105);
 
 //    cout << c1.ID << "\n";
 }

@@ -37,12 +37,8 @@ public:
 //     }
 // };
 
-void quicksort(course* array,int size){
-    quicksort_helper(array, 0, size-1);
 
-}
-
-void quicksort_helper(course* array, int firstI, int lastI){
+void quicksort_helper(course* array, int firstI, int lastI){ 
     int size = lastI - firstI + 1;
     if(size == 0){
         return;
@@ -52,35 +48,35 @@ void quicksort_helper(course* array, int firstI, int lastI){
         int High = 0;
         course Storage;
         int Pivot = firstI;
-        for(int i = firstI; i <= lastI; i++){
-            if(array[i].ID < array[Pivot].ID){
+        while(firstI + Low < lastI-High){
+            if(array[firstI + Low].ID < array[Pivot].ID){
                 Storage = array[firstI+Low];
-                array[firstI+Low] = array[i];
-                array[i] = Storage;
-                if(Pivot == firstI+Low){
-                    Pivot = i;
-                }
-                else if(Pivot == i){
-                    Pivot = firstI+Low;
-                }
+                array[firstI+Low] = array[Pivot];
+                array[Pivot] = Storage;
+                    Pivot = firstI + Low;
                 Low += 1;
-
             }
             else{
                 Storage = array[lastI-High];
-                array[lastI-High] = array[i];
-                array[i] = Storage;
+                array[lastI-High] = array[firstI + Low];
+                array[firstI + Low] = Storage;
                 if(Pivot == lastI-High){
-                    Pivot = i;
+                    Pivot = firstI + Low;
                 }
-                else if(Pivot == i){
+                else if(Pivot == firstI + Low){
                     Pivot = lastI-High;
                 }
-                High += 1;    
+                High += 1; 
             }
         }
-        quicksort_helper(array, firstI, lastI);
+        quicksort_helper(array, Pivot+1, lastI);
+        quicksort_helper(array, firstI, Pivot-1);
     }
+
+}
+
+void quicksort(course* array,int size){
+    quicksort_helper(array, 0, size-1);
 
 }
 
@@ -105,6 +101,9 @@ course* csearch(course* array,int size,int find){
     }
 
 }
+
+
+
 
 int main() 
 {
@@ -135,17 +134,23 @@ int main()
 //    csort(carray,10);
     quicksort(carray,10);
 
+
+		for (int i = 0; i < 10; i++)
+			cout << carray[i].ID << "\t";
+		cout << endl;
+
+
  //   csearch(carray,10,105);
-    int SID;
-    cout << "Enter Course ID :";
-    cin >> SID;
-    course* search = csearch(carray,10,SID);
-    if( search == NULL){
-        cout << "Course ID not found" << "\n";
-    }
-    else{
-        cout << search->ID <<" "<< search->name <<" "<< search->credit <<"\n";
-    }
+    // int SID;
+    // cout << "Enter Course ID :";
+    // cin >> SID;
+    // course* search = csearch(carray,10,SID);
+    // if( search == NULL){
+    //     cout << "Course ID not found" << "\n";
+    // }
+    // else{
+    //     cout << search->ID <<" "<< search->name <<" "<< search->credit <<"\n";
+    // }
 
 //    cout << c1.ID << "\n";
 }
